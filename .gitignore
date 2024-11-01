@@ -1,3 +1,5 @@
 .terraform/
 main.tf
 rootkey.csv
+terraform.tfstate
+Instrucciones_Instalacion_Proyecto.docx
