@@ -3,24 +3,25 @@ from .models import Task
 
 # Create your views here.
 def list_tasks(request):
-    tasks = Task.objects.all()
-    return render(request, "list_tasks.html", {"tasks": tasks})
+    listaTareas = Task.objects.all()
+    return render(request, "list_tasks.html", {"tasks": listaTareas})
 
 
 def create_task(request):
-    new_title = request.POST["title"]
-    new_description = request.POST["description"]
-    if new_title == "" or new_description == "":
-        tasks = Task.objects.all()
+    nuevoTitulo = request.POST["title"]
+    nuevaDescripcion= request.POST["description"]
+    
+    if nuevoTitulo == "" or nuevaDescripcion == "":
+        tareas = Task.objects.all()
         return render(
-            request, "list_tasks.html", {"tasks": tasks, "error": "Title and description is required"}
+            request, "list_tasks.html", {"tasks": tareas, "error": "Debes ingresar título y descripción"}
         )
-    task = Task(title=new_title, description=new_description)
-    task.save()
+    crearTarea = Task(title=nuevoTitulo, description=nuevaDescripcion)
+    crearTarea.save()
     return redirect("/tasks/")
 
 
 def delete_task(request, task_id):
-    task = Task.objects.get(id=task_id)
-    task.delete()
+    borrarTarea = Task.objects.get(id=task_id)
+    borrarTarea.delete()
     return redirect("/tasks/")
