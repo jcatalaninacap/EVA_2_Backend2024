@@ -75,7 +75,7 @@ WSGI_APPLICATION = 'djangocrud.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 import os
-
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -84,6 +84,14 @@ DATABASES = {
         "PASSWORD": os.getenv("DB_USER_PW", None),  # TF_VAR_db_password
         "HOST":     os.getenv("DB_HOST", None),     # RDS hostname from above image
         "PORT":     5432,                           # default PostgreSQL port
+    }
+}
+"""
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'VOCVOL.sqlite3',
     }
 }
 
