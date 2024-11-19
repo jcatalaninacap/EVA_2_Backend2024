@@ -87,7 +87,7 @@ DATABASES = {
     }
 }
 """
-
+#Base de datos Local 2024-11-18
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
